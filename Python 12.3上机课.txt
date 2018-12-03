@@ -1,0 +1,67 @@
+lines,blanks=0,0
+with open("2.txt") as fp:
+	while True:
+		line=fp.readline()#输出文档内容
+		print(line)
+		if not line:
+			break
+
+
+
+# try:
+# 	fp=open("2.txt")
+# 	fp.read()
+                   
+# except:
+# 	print("file no found")
+# finally:
+# 	try:
+# 		fp.close()
+# 		except:
+# 		print("can not close file")
+
+
+
+
+
+
+
+
+
+count,blanks=0,0
+with open("2.txt") as fp:
+	while True:
+		line=fp.readline()
+		#print(line)       #输出文档行数
+		if not line:
+			break
+		count+=1
+print(count)
+
+
+
+
+第三方库 进入得命令
+chcp
+pip
+pip install chardet
+
+
+
+from chardet import detect
+count,blanks=0,0
+with open("2.txt",'rb') as fp:
+	encode=(detect(fp.read()))['encoding']什么样的格式都能打开
+	print(encode)
+	fp.close()
+
+with open("2.txt",'r',encoding=encode) as fp:
+	while True:
+		line=fp.readline()
+		if not line:
+			break
+		count+=1
+		if not (len(line.strip())):
+			blanks+=1
+print(count,blanks)
+		

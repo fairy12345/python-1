@@ -1,0 +1,11 @@
+import os
+root_path=os.getcwd()
+"""当前工作目录"""
+offset=len(root_path.split("\\"))
+for root,dir,files in os.walk(root_path):#遍历文件夹
+	current_dir=root.split("\\")
+	indent=len(current_dir)-offset
+	print("\t"*indent,current_dir[-1])
+	for f in files:
+		print("\t"*(indent+1),f)
+	      
